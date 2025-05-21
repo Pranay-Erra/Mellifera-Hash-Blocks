@@ -4,12 +4,12 @@ import { FaArrowRight, FaChevronDown, FaBars, FaArrowUp, FaGlobe, FaBox, FaHeads
 import { BsWhatsapp } from 'react-icons/bs'; // WhatsApp icon
 import { FaTelegramPlane } from 'react-icons/fa'; // Telegram icon
 import './HomePage.css'; // Import the external CSS
-
+import { useNavigate } from 'react-router-dom';
 const HomePage = () => {
   // State for dropdown visibility
   const [openDropdown, setOpenDropdown] = useState(null);
   const [dropdownTimeout, setDropdownTimeout] = useState(null);
-
+  const nav=useNavigate();
   // State for mobile menu visibility
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -68,7 +68,9 @@ const HomePage = () => {
       }
     };
   }, [dropdownTimeout]);
-
+  const handleSubmit=()=>{
+    nav('/contact');
+  }
   return (
     <div className="homepage">
       {/* Header */}
@@ -172,7 +174,7 @@ const HomePage = () => {
           <button className="btn btn-primary">
             Learn More <FaArrowRight className="btn-icon" />
           </button>
-          <button className="btn btn-secondary">Contact Us</button>
+          <button className="btn btn-secondary"onClick={handleSubmit}>Contact Us</button>
         </div>
       </main>
 
