@@ -45,3 +45,6 @@ app.post("/send-message", async (req, res) => {
 
 // Start Server
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+app.get('/hello', (req, res) => {
+  res.status(200).json({ message: 'Hello! Server is healthy ✅' });
+});
